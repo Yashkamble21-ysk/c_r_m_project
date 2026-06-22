@@ -1,0 +1,373 @@
+.section {
+  padding: 160px 0; /* Expanded vertical breathing room */
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* --- THE MAGIC: Full Widescreen Desktop Boundaries --- */
+.containerInner {
+  padding: 0 clamp(2rem, 4vw, 5rem); /* Plumb line matching Navbar/Features */
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 72px;
+}
+
+/* Upscaled Tag */
+.tag {
+  display: inline-block;
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--cyan);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+/* Upscaled Title */
+.title {
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--cyan), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.desc {
+  font-size: 1.18rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* --- LEFT COLUMN: Interactive Physical Masterplan Stage --- */
+.masterplanStage {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.5);
+}
+
+.stageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+  margin-bottom: 32px;
+}
+
+.projectInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.projectIcon {
+  color: var(--cyan);
+  background: rgba(6, 182, 212, 0.15);
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+}
+
+.projectName {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--white);
+}
+
+.projectSub {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dotAvailable, .dotHold, .dotSold {
+  width: 12px; height: 12px;
+  border-radius: 4px;
+}
+
+.dotAvailable { background: var(--green); box-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
+.dotHold { background: #F59E0B; }
+.dotSold { background: #EF4444; opacity: 0.6; }
+
+/* Street Simulation */
+.streetGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.roadLine {
+  background: rgba(255, 255, 255, 0.04);
+  border-top: 2px dashed rgba(255, 255, 255, 0.15);
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.15);
+  padding: 8px 0;
+  text-align: center;
+}
+
+.roadLine span {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 2px;
+}
+
+.parcelsWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Physical Plot Box */
+.parcelBox {
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 18px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.parcelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.plotId {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.cornerStar { color: var(--cyan); }
+
+.parcelSize {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2px;
+}
+
+.parcelFacing {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+/* Status overlays */
+.statusAvailable { border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.05); }
+.statusHold { border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.05); }
+.statusSold { border-color: rgba(239, 68, 68, 0.25); opacity: 0.45; }
+
+/* Selected Parcel Glow */
+.parcelSelected {
+  border-color: var(--cyan) !important;
+  background: rgba(6, 182, 212, 0.15) !important;
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+}
+
+/* --- RIGHT COLUMN: Live RERA Inspector Card --- */
+.inspectorCard {
+  background: #1E293B;
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.inspectorTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+}
+
+.inspectorLabel {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--cyan);
+  letter-spacing: 1px;
+}
+
+.selectedTitle {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--white);
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.statusBadge {
+  font-size: 0.85rem;
+  font-weight: 900;
+  padding: 6px 16px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+}
+
+.badgeGreen { background: rgba(16, 185, 129, 0.2); color: var(--green); border: 1px solid var(--green); }
+.badgeOrange { background: rgba(245, 158, 11, 0.2); color: #F59E0B; border: 1px solid #F59E0B; }
+.badgeRed { background: rgba(239, 68, 68, 0.2); color: #EF4444; border: 1px solid #EF4444; }
+
+/* Dynamic Matrix Items */
+.specsMatrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.specItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px;
+  border-radius: var(--radius-md);
+}
+
+.specIcon { color: var(--cyan); flex-shrink: 0; }
+
+.specSub {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+.specVal {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+/* AI Box */
+.aiIntelligence {
+  grid-column: span 2;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 8px;
+}
+
+.aiHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+
+.aiText {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Interactive CTA buttons */
+.actionWrap {
+  grid-column: span 2;
+  margin-top: 12px;
+}
+
+.btnLock {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--green), #059669);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.1rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btnLock:hover { box-shadow: 0 15px 35px rgba(16, 185, 129, 0.6); transform: translateY(-2px); }
+
+.noticeHold, .noticeSold {
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.noticeHold { background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); }
+.noticeSold { background: rgba(239, 68, 68, 0.15); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+/* Responsive adjustments */
+@media (max-width: 1600px) {
+  .parcelsWrapper { gap: 12px; }
+  .parcelBox { padding: 14px 10px; }
+}
+
+@media (max-width: 1200px) {
+  .parcelsWrapper { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .containerInner { padding: 0 1.5rem; }
+  .section { padding: 100px 0; }
+  .specsMatrix { grid-template-columns: 1fr; gap: 14px; }
+  .aiIntelligence, .actionWrap { grid-column: span 1; }
+}

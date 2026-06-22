@@ -1,0 +1,247 @@
+.section {
+  padding: 160px 0; /* Plumb vertical rhythm */
+  background: var(--light);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+/* Widescreen boundaries matching Navbar, Features, and Pricing */
+.containerInner {
+  padding: 0 clamp(2rem, 4vw, 5rem);
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 72px;
+}
+
+.pulseBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+.pulseDot {
+  width: 8px; height: 8px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(2.2); opacity: 0; }
+}
+
+.title {
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 18px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--primary), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: rgba(15, 23, 42, 0.65);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Widescreen 4-Column Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.agentCard {
+  background: var(--white);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-xl);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.agentCard:hover {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.agentId {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.fteBadge {
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.bioBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.avatarWrap {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.agentName {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--dark);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+}
+
+.agentTitle {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.55);
+}
+
+/* Windows ClearType safe font size (~16.8px) */
+.agentDesc {
+  font-size: 1.05rem;
+  color: rgba(15, 23, 42, 0.7);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* Internal KPI Box */
+.kpiBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.025);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 28px;
+  margin-top: auto; /* Pushes box down to keep uneven text stems aligned */
+}
+
+.kpiCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.kpiVal {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+}
+
+.kpiLbl {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.5);
+  margin-top: 2px;
+}
+
+/* API Badges */
+.apiStack {
+  border-top: 1px dashed rgba(15, 23, 42, 0.08);
+  padding-top: 20px;
+}
+
+.apiTitle {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.4);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.apiPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.apiPill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.05);
+  color: rgba(15, 23, 42, 0.75);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* Bottom status accent LED */
+.cardBottomGlow {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  opacity: 0.85;
+}
+
+@media (max-width: 1600px) {
+  .grid { gap: 24px; }
+  .agentCard { padding: 36px 24px; }
+}
+
+@media (max-width: 1200px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+
+@media (max-width: 992px) {
+  .containerInner { padding: 0 1.5rem; }
+  .section { padding: 100px 0; }
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+}

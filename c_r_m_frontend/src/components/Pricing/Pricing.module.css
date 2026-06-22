@@ -1,0 +1,289 @@
+.section {
+  padding: 160px 0; /* Extra height to breathe with giant fonts */
+  background: var(--light);
+}
+
+.containerInner {
+  padding: 0 clamp(2rem, 4vw, 5rem);
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 56px;
+}
+
+/* Giant Tag */
+.tag {
+  display: inline-block;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+/* Giant Title (Up to 72px) */
+.title {
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--primary), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Giant Toggle Switch */
+.toggleWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 72px;
+}
+
+.activeLabel {
+  font-size: 1.25rem; /* Upgraded to 20px */
+  font-weight: 800;
+  color: var(--dark);
+}
+
+.inactiveLabel {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: rgba(15, 23, 42, 0.4);
+}
+
+.saveBadge {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--green);
+  font-size: 0.85rem;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-left: 8px;
+  letter-spacing: 0.5px;
+}
+
+.toggle {
+  width: 68px; /* Upscaled */
+  height: 36px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.18);
+  position: relative;
+  transition: background 0.3s ease;
+  padding: 0;
+  cursor: pointer;
+}
+
+.toggle.yearly { background: var(--primary); }
+
+.toggleKnob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--white);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.toggle.yearly .toggleKnob { transform: translateX(32px); }
+
+/* Widescreen 4-Column layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px; /* Widened gap to balance huge cards */
+  align-items: start;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-xl);
+  padding: 48px 36px; /* Deeper internal box padding */
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.highlighted {
+  background: linear-gradient(135deg, var(--dark), #1E293B);
+  border: 1px solid rgba(6, 182, 212, 0.5);
+  color: var(--white);
+  box-shadow: 0 20px 60px rgba(6, 182, 212, 0.25);
+}
+
+.highlighted:hover {
+  box-shadow: 0 35px 90px rgba(6, 182, 212, 0.4);
+  border-color: var(--cyan);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--primary), var(--cyan));
+  color: var(--white);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem; /* Upscaled */
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: 0 10px 25px rgba(6, 182, 212, 0.35);
+  letter-spacing: 0.5px;
+}
+
+/* --- THE JUMP: PLAN NAME (1.5rem -> 1.85rem) --- */
+.planName {
+  font-size: 1.85rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+/* --- THE JUMP: PLAN DESC (1rem -> 1.1rem) --- */
+.planDesc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 32px;
+  line-height: 1.65;
+}
+
+.card:not(.highlighted) .planDesc { color: rgba(15, 23, 42, 0.6); }
+
+.priceWrap {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 36px;
+  white-space: nowrap; /* Prevents giant numbers from line-wrapping */
+}
+
+.currency {
+  font-size: 1.8rem;
+  font-weight: 800;
+  opacity: 0.6;
+}
+
+/* --- THE JUMP: PRICE (3.5rem -> 4.8rem) --- */
+.price {
+  font-size: clamp(3.5rem, 5.5vw, 4.8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  margin: 0 4px;
+  letter-spacing: -2px;
+}
+
+.period {
+  font-size: 1.1rem;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+.features {
+  margin-bottom: 42px;
+  padding: 0;
+}
+
+/* --- THE JUMP: FEATURE LIST (1.02rem -> 1.15rem) --- */
+.features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0; /* Tall 24px total touch area per row */
+  font-size: 1.15rem; /* ~18.5px text */
+  font-weight: 600;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.checkIcon { 
+  color: var(--green); 
+  flex-shrink: 0; 
+  margin-top: 2px; /* Aligns giant icon to top of text stem */
+}
+
+/* --- THE JUMP: CTA BUTTON (1.05rem -> 1.18rem) --- */
+.cta {
+  width: 100%;
+  padding: 18px; /* Upscaled block */
+  border-radius: var(--radius-sm);
+  font-size: 1.18rem;
+  font-weight: 800;
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--dark);
+  transition: all 0.3s ease;
+  margin-top: auto;
+  cursor: pointer;
+}
+
+.cta:hover {
+  background: rgba(15, 23, 42, 0.14);
+}
+
+.ctaHighlight {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+  color: var(--white) !important;
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.45);
+}
+
+.ctaHighlight:hover {
+  box-shadow: 0 18px 45px rgba(37, 99, 235, 0.65) !important;
+}
+
+.disclaimer {
+  text-align: center;
+  font-size: 1rem; /* Upscaled */
+  color: rgba(15, 23, 42, 0.5);
+  margin-top: 64px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75;
+}
+
+/* Responsive steps down */
+@media (max-width: 1600px) {
+  .grid { gap: 24px; }
+  .card { padding: 40px 28px; }
+  .planName { font-size: 1.65rem; }
+  .features li { font-size: 1.08rem; }
+}
+
+@media (max-width: 1250px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+}
+
+@media (max-width: 992px) {
+  .containerInner { padding: 0 1.5rem; }
+  .section { padding: 100px 0; }
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+}

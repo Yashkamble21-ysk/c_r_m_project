@@ -1,0 +1,309 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+.bgOrb1, .bgOrb2, .bgOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.bgOrb1 {
+  width: 500px; height: 500px;
+  background: var(--primary);
+  top: -10%; left: -10%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.bgOrb2 {
+  width: 400px; height: 400px;
+  background: var(--purple);
+  bottom: -5%; right: -5%;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.bgOrb3 {
+  width: 300px; height: 300px;
+  background: var(--cyan);
+  top: 40%; left: 40%;
+  animation: float 12s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(30px, -30px); }
+  66% { transform: translate(-20px, 20px); }
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: var(--primary-light);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+.heading {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.12;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, var(--primary-light), var(--cyan), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subHeading {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btnMain {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 30px rgba(37,99,235,0.4);
+  transition: all 0.3s ease;
+}
+
+.btnMain:hover {
+  box-shadow: 0 12px 40px rgba(37,99,235,0.55);
+  color: var(--white);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+}
+
+.btnSecondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.4);
+  color: var(--white);
+}
+
+/* Dashboard Illustration */
+.dashboardWrap {
+  perspective: 1000px;
+}
+
+.dashboard {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  transform: rotateY(-3deg) rotateX(2deg);
+  transition: transform 0.5s ease;
+}
+
+.dashboard:hover {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+.dashTopBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.dashDots {
+  display: flex;
+  gap: 6px;
+}
+
+.dashDots span {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+
+.dashDots span:first-child { background: #EF4444; }
+.dashDots span:nth-child(2) { background: #F59E0B; }
+.dashDots span:last-child { background: #10B981; }
+
+.dashTitle {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.dashStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.dashStatCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+}
+
+.statIcon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.statLabel {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.45);
+  font-weight: 500;
+}
+
+.dashChart {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.chartBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 80px;
+}
+
+.chartBar {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+}
+
+.chatWidget {
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.chatHeader {
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+.chatMessages {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chatMsg {
+  font-size: 0.7rem;
+  line-height: 1.5;
+  padding: 8px 10px;
+  border-radius: 8px;
+  max-width: 85%;
+}
+
+.botMsg {
+  background: rgba(37, 99, 235, 0.15);
+  color: rgba(255,255,255,0.85);
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+
+.userMsg {
+  background: rgba(139, 92, 246, 0.2);
+  color: rgba(255,255,255,0.85);
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+@media (max-width: 992px) {
+  .hero { padding: 100px 0 60px; }
+  .dashboard { transform: none; }
+}
+
+@media (max-width: 576px) {
+  .dashStats { grid-template-columns: repeat(2, 1fr); }
+}

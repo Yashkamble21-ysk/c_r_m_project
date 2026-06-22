@@ -1,0 +1,148 @@
+.section {
+  padding: 130px 0;
+  background: var(--white);
+  position: relative;
+}
+
+.containerInner {
+  padding: 0 clamp(2rem, 4vw, 5rem);
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 80px;
+}
+
+/* Upscaled Tag */
+.tag {
+  display: inline-block;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary);
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 20px;
+}
+
+/* Upscaled Title */
+.title {
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.18;
+  margin-bottom: 20px;
+  letter-spacing: -0.8px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--primary), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Upscaled Subtitle */
+.subtitle {
+  font-size: 1.18rem;
+  color: rgba(15, 23, 42, 0.6);
+  line-height: 1.75;
+}
+
+/* --- UPGRADED GRID GAP (From 28px to 38px) --- */
+.grid {
+  display: grid;
+  gap: 38px;
+  grid-template-columns: repeat(4, 1fr); 
+}
+
+.card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  border-radius: var(--radius-lg);
+  padding: 42px 34px; /* Increased internal padding to match bigger text */
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: 0 25px 60px rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.card:hover .cardGlow {
+  opacity: 0.08;
+}
+
+/* --- UPGRADED ICON BOX (From 56px to 68px) --- */
+.iconWrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  margin-bottom: 28px;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+/* --- UPGRADED CARD TITLE (From 1.15rem to 1.35rem) --- */
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+/* --- UPGRADED CARD DESC (From 0.9rem to 1rem) --- */
+.cardDesc {
+  font-size: 1rem;
+  color: rgba(15, 23, 42, 0.6);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.cardGlow {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(55px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+@media (min-width: 1600px) {
+  .grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (max-width: 1300px) {
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .card { padding: 36px 28px; }
+  .cardTitle { font-size: 1.25rem; }
+}
+
+@media (max-width: 992px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .containerInner { padding: 0 1.5rem; }
+}
+
+@media (max-width: 576px) {
+  .grid { grid-template-columns: 1fr; }
+  .section { padding: 80px 0; }
+}

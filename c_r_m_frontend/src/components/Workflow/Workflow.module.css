@@ -1,0 +1,172 @@
+.section {
+  padding: 160px 0; /* Extra height to breathe with giant fonts */
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- THE MAGIC: Full Widescreen Desktop Boundaries --- */
+.containerInner {
+  padding: 0 clamp(2rem, 4vw, 5rem); /* Plumb alignment with Navbar/Features */
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 72px;
+}
+
+/* Upscaled Tag */
+.tag {
+  display: inline-block;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--green);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+/* Upscaled Main Title */
+.title {
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 18px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--green), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Added Upscaled Subtitle */
+.subtitle {
+  font-size: 1.18rem;
+  color: rgba(15, 23, 42, 0.6);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Widescreen 4-Column Blueprint Layout */
+.stepsWrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px; /* Widened gap to balance huge cards */
+  position: relative;
+}
+
+.stepCard {
+  text-align: center;
+  padding: 48px 32px; /* Deeper internal box padding */
+  border-radius: var(--radius-xl);
+  background: var(--light);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  background: #FFFFFF;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+/* --- UPGRADED STEP NUMBER BADGE (From 0.75rem to 1rem) --- */
+.stepNumber {
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 6px 18px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+/* --- UPGRADED STEP ICON BOX (From 60px to 76px) --- */
+.stepIcon {
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  margin-bottom: 28px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* --- UPGRADED STEP TITLE (From 1.1rem to 1.5rem) --- */
+.stepTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 14px;
+  letter-spacing: -0.4px;
+}
+
+/* --- UPGRADED STEP DESC (From 0.85rem to 1.1rem) --- */
+.stepDesc {
+  font-size: 1.1rem; /* ~17.6px text rendered pristinely on Windows ClearType */
+  color: rgba(15, 23, 42, 0.65);
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* --- UPGRADED CONNECTING ARROWS --- */
+.arrowWrap {
+  position: absolute;
+  right: -36px; /* Exactly spans the 36px grid gap */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  color: var(--primary);
+  opacity: 0.35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  pointer-events: none;
+}
+
+.stepCard:hover + .stepCard .arrowWrap,
+.stepCard:hover .arrowWrap {
+  opacity: 0.8;
+  color: var(--green);
+}
+
+/* Responsive collapse for smaller monitors */
+@media (max-width: 1600px) {
+  .stepsWrap { gap: 24px; }
+  .arrowWrap { right: -28px; width: 24px; }
+  .stepCard { padding: 40px 24px; }
+  .stepTitle { font-size: 1.35rem; }
+}
+
+@media (max-width: 1200px) {
+  .stepsWrap { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .arrowWrap { display: none; } /* Hide horizontal arrows on split rows */
+}
+
+@media (max-width: 992px) {
+  .containerInner { padding: 0 1.5rem; }
+  .section { padding: 100px 0; }
+}
+
+@media (max-width: 768px) {
+  .stepsWrap { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+}

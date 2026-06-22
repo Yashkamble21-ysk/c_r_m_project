@@ -1,0 +1,144 @@
+.section {
+  padding: 140px 0; /* Expanded vertical presence */
+  background: var(--white);
+  overflow: hidden;
+}
+
+/* --- THE MAGIC: Full Widescreen Desktop Boundaries --- */
+.containerInner {
+  padding: 0 clamp(2rem, 4vw, 5rem); /* Plumb alignment with Navbar/Features */
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.leftContent {
+  max-width: 720px; /* Expanded reading width */
+}
+
+/* Upscaled Tag */
+.tag {
+  display: inline-block;
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--purple);
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 24px;
+}
+
+/* Upscaled Title */
+.title {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.16;
+  margin-bottom: 28px;
+  letter-spacing: -0.8px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--purple), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Upscaled Description */
+.desc {
+  font-size: 1.18rem;
+  color: rgba(15, 23, 42, 0.65);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* --- UPGRADED METRICS GRID GAP (From 16px to 22px) --- */
+.metricsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-left: 1.5rem; /* Separates the cards slightly from the left text */
+}
+
+.metricCard {
+  padding: 28px 32px; /* Upscaled internal touch targets */
+  background: var(--light);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metricCard:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+  transform: translateX(8px) translateY(-2px); /* Premium right-up nudge */
+  background: #FFFFFF;
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.metricTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/* --- UPGRADED ICON BOX (From 40px to 56px) --- */
+.metricIconWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* --- UPGRADED NUMBERS (From 1.6rem to 2.4rem) --- */
+.metricValue {
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+/* --- UPGRADED LABELS (From 0.88rem to 1.08rem) --- */
+.metricLabel {
+  font-size: 1.08rem;
+  color: rgba(15, 23, 42, 0.75); /* Darker, high contrast readability */
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* --- UPGRADED PROGRESS BARS (From 6px to 8px) --- */
+.progressBar {
+  height: 8px;
+  background: rgba(15, 23, 42, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+@media (max-width: 1400px) {
+  .metricsGrid { padding-left: 0; }
+}
+
+@media (max-width: 992px) {
+  .containerInner { padding: 0 1.5rem; }
+  .section { padding: 100px 0; }
+  .leftContent { margin-bottom: 20px; }
+  .metricCard { padding: 24px; }
+}
+
+@media (max-width: 576px) {
+  .metricValue { font-size: 2rem; }
+  .metricIconWrap { width: 48px; height: 48px; }
+  .metricLabel { font-size: 0.95rem; }
+}
