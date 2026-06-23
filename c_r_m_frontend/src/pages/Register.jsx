@@ -87,7 +87,7 @@ export default function Register() {
         password: formData.password
       }
 
-      const response = await fetch('http://localhost:8000/api/register', {
+      const response = await fetch('https://c-r-m-project.onrender.com/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
