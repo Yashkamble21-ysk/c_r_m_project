@@ -15,7 +15,7 @@ import { toast } from 'react-toastify'
 import styles from './Dashboard.module.css'
 
 // API Configuration
-const API_URL = 'http://localhost:8000/api';
+const API_URL = 'https://c-r-m-project.onrender.com/api';
 
 // --- API HELPER ---
 const apiCall = async (endpoint, method = 'GET', body = null) => {
